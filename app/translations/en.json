@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "id": "app.components.NotFoundPage.header",
+    "defaultMessage": "This is NotFoundPage component !",
+    "message": ""
+  }
+]

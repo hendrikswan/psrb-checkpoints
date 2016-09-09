@@ -10,7 +10,7 @@
  */
 
 import React from 'react';
-import Topic from '../../components/Topic';
+import NavigationContainer from '../../containers/NavigationContainer';
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -21,7 +21,7 @@ export default class HomePage extends React.Component { // eslint-disable-line r
           Coder Daily
         </h1>
         <div>
-          <Topic description="test description" />
+          <NavigationContainer />
         </div>
       </div>
     );
