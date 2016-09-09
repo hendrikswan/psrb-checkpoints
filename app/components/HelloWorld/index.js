@@ -12,7 +12,6 @@ import messages from './messages';
 import styles from './styles.css';
 
 function HelloWorld() {
-
   return (
     <div className={styles.helloWorld}>
       <FormattedMessage {...messages.header} />
