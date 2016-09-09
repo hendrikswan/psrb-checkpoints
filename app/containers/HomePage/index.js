@@ -10,16 +10,20 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import Topic from '../../components/Topic';
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <div>
+        <h1>
+          Coder Daily
+        </h1>
+        <div>
+          <Topic description="test description" />
+        </div>
+      </div>
     );
   }
 }
