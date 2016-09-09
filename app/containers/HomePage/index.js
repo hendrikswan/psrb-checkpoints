@@ -33,6 +33,8 @@ import List from 'components/List';
 import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
 
+import HelloWorld from 'components/HelloWorld';
+
 import styles from './styles.css';
 
 export class HomePage extends React.Component {
@@ -100,6 +102,9 @@ export class HomePage extends React.Component {
             <H2>
               <FormattedMessage {...messages.trymeHeader} />
             </H2>
+
+            <HelloWorld />
+
             <form className={styles.usernameForm} onSubmit={this.props.onSubmitForm}>
               <label htmlFor="username">
                 <FormattedMessage {...messages.trymeMessage} />

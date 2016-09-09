@@ -1,13 +1,8 @@
 [
   {
-    "id": "app.components.LocaleToggle.de",
-    "defaultMessage": "de",
-    "message": ""
-  },
-  {
-    "id": "app.components.LocaleToggle.en",
-    "defaultMessage": "en",
-    "message": ""
+    "id": "app.components.HelloWorld.header",
+    "defaultMessage": "This is the HelloWorld component !",
+    "message": "Hello World!"
   },
   {
     "id": "boilerplate.components.Footer.author.message",
