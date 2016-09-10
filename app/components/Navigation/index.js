@@ -8,9 +8,13 @@ import React from 'react';
 import styles from './styles.css';
 import Topic from '../Topic';
 
-function Navigation({ topics }) {
+function Navigation({ topics, selectTopic }) {
   const topicNodes = topics.map(t => (
-    <Topic {...t} key={t.description} />
+    <Topic
+      key={t.description}
+      selectTopic={selectTopic}
+      topic={t}
+    />
   ));
 
   return (
@@ -25,6 +29,7 @@ Navigation.propTypes = {
     name: React.PropTypes.string.isRequired,
     description: React.PropTypes.string.isRequired,
   })).isRequired,
+  selectTopic: React.PropTypes.func.isRequired,
 };
 
 export default Navigation;
