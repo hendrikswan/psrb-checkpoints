@@ -1,8 +1,8 @@
-import { call } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import 'whatwg-fetch';
 import { REQUEST_TOPICS } from './constants';
 import { takeLatest } from 'redux-saga';
-// import { fetch } from 'isomorphic-fetch';
+import { requestTopicsSucceeded, requestTopicsFailed } from './actions';
 
 export function fetchTopicsFromServer() {
   return fetch('http://localhost:3000/api/topics')
@@ -10,8 +10,12 @@ export function fetchTopicsFromServer() {
 }
 
 function* fetchTopics() {
-  const topics = yield call(fetchTopicsFromServer);
-  console.log('TOPICS FROM THE SERVER!!!', topics);
+  try {
+    const topics = yield call(fetchTopicsFromServer);
+    yield put(requestTopicsSucceeded(topics));
+  } catch (e) {
+    yield put(requestTopicsFailed(e.message));
+  }
 }
 
 // Individual exports for testing
