@@ -5,14 +5,17 @@
 */
 
 import React from 'react';
-
-
 import styles from './styles.css';
+import Topic from '../Topic';
 
 function Navigation({ topics }) {
+  const topicNodes = topics.map(t => (
+    <Topic {...t} key={t.description} />
+  ));
+
   return (
     <div className={styles.navigation}>
-      {topics.length}
+      {topicNodes}
     </div>
   );
 }
