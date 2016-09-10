@@ -18,10 +18,10 @@ function Navigation({ topics }) {
 }
 
 Navigation.propTypes = {
-  topics: React.PropTypes.arrayOf({
+  topics: React.PropTypes.arrayOf(React.PropTypes.shape({
     name: React.PropTypes.string.isRequired,
     description: React.PropTypes.string.isRequired,
-  }).isRequired,
+  })).isRequired,
 };
 
 export default Navigation;
