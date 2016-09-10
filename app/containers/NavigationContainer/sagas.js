@@ -1,10 +1,22 @@
-// import { take, call, put, select } from 'redux-saga/effects';
+import { call } from 'redux-saga/effects';
+import 'whatwg-fetch';
 import { REQUEST_TOPICS } from './constants';
 import { takeLatest } from 'redux-saga';
+// import { fetch } from 'isomorphic-fetch';
+
+export function fetchTopicsFromServer() {
+  return fetch('http://localhost:3000/api/topics')
+    .then(response => response.json());
+}
+
+function* fetchTopics() {
+  const topics = yield call(fetchTopicsFromServer);
+  console.log('TOPICS FROM THE SERVER!!!', topics);
+}
 
 // Individual exports for testing
 export function* fetchTopicsSaga() {
-  yield* takeLatest(REQUEST_TOPICS, () => console.log('LOGGED BY SAGA!!!!!!!!')); // eslint-disable-line no-console
+  yield* takeLatest(REQUEST_TOPICS, fetchTopics);
 }
 
 // All sagas to be loaded
