@@ -18,13 +18,8 @@ export default class HomePage extends React.Component { // eslint-disable-line r
   render() {
     return (
       <div>
-        <h1>
-          Coder Daily
-        </h1>
-        <div>
-          <NavigationContainer />
-          <LinkListContainer />
-        </div>
+        <NavigationContainer />
+        <LinkListContainer />
       </div>
     );
   }
