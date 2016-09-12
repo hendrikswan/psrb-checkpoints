@@ -6,24 +6,25 @@
 
 import React from 'react';
 import styles from './styles.css';
-import Topic from '../Topic';
 import AppBar from '../AppBar';
+import Drawer from '../Drawer';
 
-function Navigation({ topics, selectTopic, toggleDrawer }) {
-  const topicNodes = topics.map(t => (
-    <Topic
-      key={t.description}
-      selectTopic={selectTopic}
-      topic={t}
-    />
-  ));
-
+function Navigation({ topics, selectTopic, toggleDrawer, isDrawerOpen }) {
   return (
     <div className={styles.navigation}>
       <AppBar
         toggleDrawer={toggleDrawer}
       />
-      {topicNodes}
+
+      <Drawer
+        items={topics}
+        selectItem={selectTopic}
+        itemLabelAttr="name"
+        itemKeyAttr="name"
+        isDrawerOpen={isDrawerOpen}
+      />
+
+
     </div>
   );
 }
@@ -35,6 +36,7 @@ Navigation.propTypes = {
   })).isRequired,
   selectTopic: React.PropTypes.func.isRequired,
   toggleDrawer: React.PropTypes.func.isRequired,
+  isDrawerOpen: React.PropTypes.bool.isRequired,
 };
 
 export default Navigation;
