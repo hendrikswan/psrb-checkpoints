@@ -8,11 +8,12 @@
 
 .container {
   display: block;
+  margin: 10px;
 }
 
 body {
   font-family: Roboto;
-  background-color: #e5e5e5;
+  background-color: #E5E5E5;
 }
 
 * {
