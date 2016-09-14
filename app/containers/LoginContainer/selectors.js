@@ -16,7 +16,13 @@ const selectLoginContainerDomain = () => state => state.get('loginContainer');
 
 const selectLoginContainer = () => createSelector(
   selectLoginContainerDomain(),
-  (substate) => substate.toJS()
+  (substate) => {
+    if (substate) {
+      return substate.toJS();
+    }
+
+    return {};
+  }
 );
 
 export default selectLoginContainer;

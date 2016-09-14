@@ -9,7 +9,8 @@ import FontAwesome from 'react-fontawesome';
 import styles from './styles.css';
 import { Link } from 'react-router';
 
-function AppBar({ toggleDrawer }) {
+function AppBar({ toggleDrawer, email }) {
+  const loginLink = email || (<Link to="/login"> login </Link>);
   return (
     <div className={styles.appBar}>
       <div
@@ -29,7 +30,7 @@ function AppBar({ toggleDrawer }) {
       <div
         className={styles.linkContainer}
       >
-        <Link to="/login"> login </Link>
+        {loginLink}
       </div>
     </div>
   );
@@ -37,6 +38,7 @@ function AppBar({ toggleDrawer }) {
 
 AppBar.propTypes = {
   toggleDrawer: React.PropTypes.func.isRequired,
+  email: React.PropTypes.string,
 };
 
 export default AppBar;
