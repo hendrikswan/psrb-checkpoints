@@ -15,7 +15,11 @@ function Link({ link }) {
       <div
         className={styles.votingContainer}
       >
-        {link.voteCount}
+        <div
+          className={styles.votingCount}
+        >
+          {link.voteCount}
+        </div>
       </div>
 
       <div
