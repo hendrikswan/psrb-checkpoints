@@ -1,4 +1,4 @@
-.appBar {
+.appBar { /* stylelint-disable */
   width: 100%;
   padding: 20px;
   background-color: #00afcc;
@@ -24,6 +24,7 @@
 
 .linkContainer {
   font-size: 16px;
+  margin-top: 6px;
 }
 
 .heading {
