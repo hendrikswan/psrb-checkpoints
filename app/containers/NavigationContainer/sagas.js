@@ -1,6 +1,6 @@
 import { call, put, select } from 'redux-saga/effects';
 import 'whatwg-fetch';
-import { REQUEST_TOPICS, SELECT_TOPIC, REQUEST_TOPICS_SUCCEEDED } from './constants';
+import { REQUEST_TOPICS, SELECT_TOPIC, REQUEST_TOPICS_SUCCEEDED, START_LOGIN } from './constants';
 import { takeLatest } from 'redux-saga';
 import { requestTopicsSucceeded, requestTopicsFailed } from './actions';
 import { push } from 'react-router-redux';
@@ -34,10 +34,10 @@ function* selectDefaultTopic() {
   }
 }
 
+
 export function* selectDefaultTopicSaga() {
   yield* takeLatest(REQUEST_TOPICS_SUCCEEDED, selectDefaultTopic);
 }
-
 
 // Individual exports for testing
 export function* fetchTopicsSaga() {
@@ -48,9 +48,14 @@ export function* selectTopicSaga() {
   yield* takeLatest(SELECT_TOPIC, pushTopic);
 }
 
+export function* startLoginSaga() {
+  yield* takeLatest(START_LOGIN, () => put(push('/login')));
+}
+
 // All sagas to be loaded
 export default [
   fetchTopicsSaga,
   selectTopicSaga,
   selectDefaultTopicSaga,
+  startLoginSaga,
 ];

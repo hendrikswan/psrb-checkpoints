@@ -32,3 +32,7 @@
   display: flex;
   flex-grow: 2;
 }
+
+.loginButton {
+  cursor: pointer;
+}

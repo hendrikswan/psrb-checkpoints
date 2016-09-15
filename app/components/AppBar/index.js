@@ -7,10 +7,17 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import styles from './styles.css';
-import { Link } from 'react-router';
 
-function AppBar({ toggleDrawer, email }) {
-  const loginLink = email || (<Link to="/login"> login </Link>);
+
+function AppBar({ toggleDrawer, email, startLogin }) {
+  const loginLink = email || (
+    <div
+      className={styles.loginButton}
+      onClick={startLogin}
+    >
+      log in
+    </div>
+  );
   return (
     <div className={styles.appBar}>
       <div
@@ -38,6 +45,7 @@ function AppBar({ toggleDrawer, email }) {
 
 AppBar.propTypes = {
   toggleDrawer: React.PropTypes.func.isRequired,
+  startLogin: React.PropTypes.func.isRequired,
   email: React.PropTypes.string,
 };
 
